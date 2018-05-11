@@ -10,6 +10,7 @@ function TodoService() {
 	}
 
 	this.getTodos = function (draw) {
+		//@ts-ignore
 		$.get(baseUrl)
 			.then(function (res) { // <-- WHY IS THIS IMPORTANT????
 				
@@ -19,6 +20,7 @@ function TodoService() {
 
 	this.addTodo = function (todo) {
 		// WHAT IS THIS FOR???
+		//@ts-ignore
 		$.post(baseUrl, todo)
 			.then(function(res){ // <-- WHAT DO YOU DO AFTER CREATING A NEW TODO?
 				
@@ -33,6 +35,7 @@ function TodoService() {
 		//STEP 2: Change the completed flag to the opposite of what is is **HINT** todo.completed = !todo.completed
 
 		//STEP 3: Here is that weird Ajax request because $.put doesn't exist
+		//@ts-ignore
 		$.ajax({
 			method: 'PUT',
 			contentType: 'application/json',
