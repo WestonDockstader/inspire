@@ -8,7 +8,7 @@ function QuoteService(){
 		//@ts-ignore
 		$.get(apiUrl, function(res){
 			res = JSON.parse(res)
-			console.log('Quote Data:', res)
+			//console.log('Quote Data:', res)
 			//Now What?
 			callWhenDone(res)
 		})

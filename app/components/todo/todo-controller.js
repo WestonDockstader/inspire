@@ -17,16 +17,31 @@ function TodoController() {
 	function draw(todos) {
 		//WHAT IS MY PURPOSE?
 		//BUILD YOUR TODO TEMPLATE HERE
-		var template = ''
+		var template = `
+		<form class="form-inline formStyle" onsubmit="app.controllers.todoController.addTodoFromForm(event)">
+		<p>${todos.length} to do</p>
+		`
 		//DONT FORGET TO LOOP
+		for(var i=0;i<todos.length;i++){
+			var todo = todos[i]
+			var check = todo.completed ? 'checked' : ''
+			var visi = todo.completed ? 'visible' : 'hidden' 
+			template+=`
+			<input name="${todo._id}" type="checkbox" onchange="app.controllers.todoController.toggleTodoStatus('${todo._id}')" ${check}>
+			<label for="${todo._id}">${todo.description}   <span onclick="app.controllers.todoController.removeTodo('${todo._id}')" style="visibility: ${visi};">[X]</span></label><br>
+			`
+		}
+		// <span id="${todo.completed}" style="visibility:hidden;">[X]</span>
+		template+='<input type="text" name="newTodo" placeholder="New ToDo"></form>'
+		document.getElementById('todo').innerHTML=template
 	}
-
+	
 	this.addTodoFromForm = function (e) {
 		e.preventDefault() // <-- hey this time its a freebie don't forget this
 		// TAKE THE INFORMATION FORM THE FORM
-		var form = e.target
+		var form = e.target.newTodo.value
 		var todo = {
-			// DONT FORGET TO BUILD YOUR TODO OBJECT
+			description: form
 		}
 
 		//PASSES THE NEW TODO TO YOUR SERVICE
@@ -44,10 +59,10 @@ function TodoController() {
 
 	this.removeTodo = function (todoId) {
 		// ask the service to run the remove todo with this id
-
+		todoService.removeTodo(todoId, getTodos)
 		// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
 	}
-
+	getTodos();
 	// IF YOU WANT YOUR TODO LIST TO DRAW WHEN THE PAGE FIRST LOADS WHAT SHOULD YOU CALL HERE???
 
 }

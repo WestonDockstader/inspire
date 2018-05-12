@@ -12,9 +12,7 @@ function WeatherService() {
 			// Have you ever wanted to know the temperature measured in kelvin?
 			// You should probably convert the temperature data
 			//console.log(res)
-			var fahr = res.main.temp*(9/5)-459.67
-			var city = res.name
-			callWhenDone(fahr,city);
+			callWhenDone(res);
 		})
 	}
 }
