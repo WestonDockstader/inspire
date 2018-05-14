@@ -17,9 +17,10 @@ function TodoController() {
 	function draw(todos) {
 		//WHAT IS MY PURPOSE?
 		//BUILD YOUR TODO TEMPLATE HERE
+		
 		var template = `
-		<form class="form-inline formStyle" onsubmit="app.controllers.todoController.addTodoFromForm(event)">
-		<p>${todos.length} to do</p>
+		<form class="form-inline d-flex flex-column align-items-start formStyle" onsubmit="app.controllers.todoController.addTodoFromForm(event)">
+		<div class="form-group"><p class="todo-style"><span id="todo-count">0</span> to do</p></div>
 		`
 		//DONT FORGET TO LOOP
 		for(var i=0;i<todos.length;i++){
@@ -27,13 +28,19 @@ function TodoController() {
 			var check = todo.completed ? 'checked' : ''
 			var visi = todo.completed ? 'visible' : 'hidden' 
 			template+=`
-			<input name="${todo._id}" type="checkbox" onchange="app.controllers.todoController.toggleTodoStatus('${todo._id}')" ${check}>
-			<label for="${todo._id}">${todo.description}   <span onclick="app.controllers.todoController.removeTodo('${todo._id}')" style="visibility: ${visi};">[X]</span></label><br>
+			<div class="form-group justifly-content-between todo-style">
+				<input name="${todo._id}" type="checkbox" onchange="app.controllers.todoController.toggleTodoStatus('${todo._id}')" ${check}>
+				<label for="${todo._id}">${todo.description}</label>
+				<span onclick="app.controllers.todoController.removeTodo('${todo._id}')" style="visibility: ${visi};">  [X]</span>
+			</div>
 			`
 		}
-		// <span id="${todo.completed}" style="visibility:hidden;">[X]</span>
-		template+='<input type="text" name="newTodo" placeholder="New ToDo"></form>'
+		template+=`<div class="d-flex d-inline-block">
+								<input type="text" name="newTodo" placeholder="New ToDo">
+							</div>
+						</form>`
 		document.getElementById('todo').innerHTML=template
+		document.getElementById('todo-count').innerHTML=todos.length
 	}
 	
 	this.addTodoFromForm = function (e) {

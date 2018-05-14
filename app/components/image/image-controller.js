@@ -7,6 +7,16 @@ function ImageController() {
 		//console.log(image.url)
 		document.getElementById('body').style.backgroundImage="url('"+image.url+"')";
 	})
+
+	// function draw(){
+	// 	var template=`<button class="btn btn-light" onclick="app.controllers.imageController.getImage()">Change Image</button>`
+	// 	document.getElementById('img-btn').innerHTML=template;
+	// }
+
+	// this.newImage = function newImage(){
+	// 	imageService.getImage()
+	// }
+	// draw()
 }
 
 

@@ -5,8 +5,10 @@ function QuoteController(){
 	qs.getQuote(function(quote){
 		//console.log(quote.quote)
 		var temp = `
-		<h3>${quote.quote}</h3>
-		<h4>Author: ${quote.author}</h4>
+		<div id="quote-body" class="d-inline-block flex-column formStyle">
+		<p class="mb-0">${quote.quote}</p>
+		<p id="quote-author" class="mb-0">Author - ${quote.author}</p>
+		</div>
 		`
 		document.getElementById('quote').innerHTML=temp
 	})

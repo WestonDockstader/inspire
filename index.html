@@ -11,23 +11,39 @@
 <body id="body">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-12 d-flex flex-row-reverse locator">
+			<!-- align-top puts this at the top and row-reverse puts in in the right corner -->
+			<div class="col-12 d-flex align-top flex-row-reverse locator">
 				<div id="weather">
 					Your Weather Template
 				</div>
 			</div>
-			<div class="col locator">
+		</div>
+		<!-- align-items-center centers this row content by giving the min height -->
+		<div class="row d-flex align-items-center" style="min-height: 70%;">
+			<div class="col-12 d-flex justify-content-center">
+				<div id="time" class="formStyle">
+					Put Time here
+				</div>
+			</div>
+		</div>
+		<div class="row" style="min-height: 20%;">
+			<!-- baseline class to put this row at the bottom of the page -->
+			<div class="col-3 align-self-end">
+				<div id="img-btn"></div>
+			</div>
+			<div class="col-6 d-inline-flex align-self-end d-flex flex-column">
 				<div id="quote">
 					The Quote
 				</div>
 			</div>
-			<div class="col locator">
-				<div id="todo">
+			<div class="col-3 pr-3">
+				<div id="todo" class="todoList">
 
 					A Todo List
 				</div>
 			</div>
 		</div>
+
 	</div>
 
 

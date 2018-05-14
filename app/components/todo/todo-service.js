@@ -14,7 +14,7 @@ function TodoService() {
 		$.get(baseUrl)
 			.then(function (res) { // <-- WHY IS THIS IMPORTANT????
 				todoList=res.data
-				console.log(todoList)
+				//console.log(todoList)
 				//console.log(res.data)
 				cb(res.data)
 			})

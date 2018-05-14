@@ -6,9 +6,34 @@
     color: white;
 }
 .loactor{
-    background-color: grey;
+    background-color: black;
 
 }
 .formStyle{
-    background-color: beige;
+    background-color: rgba(51, 46, 46, 0.4);
+    border-radius: 5px;
+    margin: 0;
+    padding: 0.5rem;
+
+}
+.time-clock{
+    height: auto;
+}
+.todo-style{
+    margin: 0;
+    padding-top: 0.5rem;
+    overflow: hidden;
+}
+#time{
+    font-size: 10rem;
+}
+#quote-author{
+    opacity: 0;
+}
+#quote-body:hover #quote-author{
+    opacity: 1;
+}
+.todoList{
+    position: absolute;
+    bottom: 0;
 }
