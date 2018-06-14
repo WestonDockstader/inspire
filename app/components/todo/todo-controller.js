@@ -28,10 +28,10 @@ function TodoController() {
 			var check = todo.completed ? 'checked' : ''
 			var visi = todo.completed ? 'visible' : 'hidden' 
 			template+=`
-			<div class="form-group justifly-content-between todo-style">
+			<div class="form-group d-flex justifly-content-between todo-style">
 				<input name="${todo._id}" type="checkbox" onchange="app.controllers.todoController.toggleTodoStatus('${todo._id}')" ${check}>
 				<label for="${todo._id}">${todo.description}</label>
-				<span onclick="app.controllers.todoController.removeTodo('${todo._id}')" style="visibility: ${visi};">  [X]</span>
+				<button class="btn-danger" onclick="app.controllers.todoController.removeTodo('${todo._id}')" style="visibility: ${visi}; font-size: 10px; color: white;"> <strong>X</strong></button>
 			</div>
 			`
 		}
@@ -53,7 +53,7 @@ function TodoController() {
 
 		//PASSES THE NEW TODO TO YOUR SERVICE
 		//DON'T FORGET TO REDRAW THE SCREEN WITH THE NEW TODO
-		//YOU SHOULDN'T NEED TO CHANGE THIS
+		//YOU SHOULDN'T NEED TO CHANGE THIS/ 
 		todoService.addTodo(todo, getTodos)
 		                         //^^^^^^^ EXAMPLE OF HOW TO GET YOUR TOODOS AFTER AN EDIT
 	}
